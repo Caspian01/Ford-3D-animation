@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+
+html{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+html, body{
+    overflow-x: hidden;
+}
+
+spline-viewer {
+    width: 100vw;  /* Full width of viewport */
+    height: 100vh; /* Full height of viewport */
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+.animation-car {
+    z-index: -1;
+    height: 100vh;
+     /* Make sure it's positioned relative */
+}
+
+.navbar {
+    position: absolute;
+    z-index: 1;
+    padding-left: 50px;
+}
+
+.title-info {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 250px;
+    width: 100vw;
+    height: 200px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    cursor: default;
+    user-select: none;
+    margin-bottom: 50px; /* Add margin to prevent overlap */
+}
+
+#landing-page {
+    position: relative; /* Ensure relative positioning */
+    overflow: hidden; /* Prevent content from overflowing */
+}
+
+h1{
+    text-align: center;
+}
+
+.explore-link {
+    display: inline-block; /* Ensures the link behaves like a block element */
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none; /* Removes default underline */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.explore-link:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Card flipping */
+
+#card-section{
+    padding: 100px;
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 30px; /* Space between cards */
+    padding: 20px;
+}
+
+.card {
+    width: 220px;
+    height: 320px;
+    perspective: 1000px; /* Depth of the 3D effect */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg); /* Flip on hover */
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4em; /* Font size */
+    border-radius: 10px;
+}
+
+.card-front {
+    background-color: rgb(19, 18, 18); /* Front face color (Ford Blue) */
+    color: #ffffff;
+    border: 2px solid #ffffff; /* White border */
+}
+
+.card-back {
+    background-color: white; /* Back face color (Ford Green) */
+    color: #000000;
+    transform: rotateY(180deg); /* Initially hidden, flipped 180 degrees */
+    border: 2px solid #ffffff; /* White border */
+}
+
+/* Add some visual enhancements */
+.card-front h2,
+.card-back h2 {
+    margin: 0;
+    font-size: 1.5em; /* Card title size */
+    text-transform: uppercase; /* Uppercase for title */
+}
+
+.card-back p {
+    margin: 0;
+    font-size: 1em; /* Description text size */
+    padding: 0 10px; /* Padding for description */
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: 120px;
+        height: 220px;
+        perspective: 1000px; /* Depth of the 3D effect */
+    }
+
+    .card-container{
+        padding: 0;
+    }
+}
+
+/* Styles for screens wider than 900px */
+@media (max-width: 900px) {
+    .card {
+        width: 120px;
+        height: 220px;
+        perspective: 1000px; /* Depth of the 3D effect */
+    }
+    .card-container{
+        padding: 0;
+    }
+    #card-section{
+        padding: 35px;
+    }
+}
